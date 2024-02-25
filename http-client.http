@@ -1,0 +1,57 @@
+### POST register
+POST {{host}}/auth/register
+Content-Type: application/json
+
+{
+  "email": "test@test.com",
+  "password": "12345",
+  "name": "USER_1"
+}
+
+### POST login
+POST {{host}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "test@email.com",
+  "password": "12345"
+}
+
+
+### GET me
+GET {{host}}/auth/me
+Authorization: Bearer {{currentToken}}
+
+
+### GET All news
+GET {{host}}/news
+
+
+### GET One news
+GET {{host}}/news/65d4d076d98ee4b81d2fe250
+
+
+### POST Create news
+POST {{host}}/news
+Authorization: Bearer {{currentToken}}
+Content-Type: application/json
+
+{
+  "title": "Основные принципы SEO",
+  "text": "В наше время, когда большинство пользователей интернета используют поисковые системы для поиска информации, важно уделить внимание SEO (Search Engine Optimization) - оптимизации для поисковых систем. SEO - это набор стратегий и методов, которые помогают веб-сайтам получить высокие позиции в результатах поиска. В этой статье мы рассмотрим основные принципы SEO и роль, которую они играют в продвижении веб-сайта.",
+  "imageUrl": "https://static.tildacdn.com/tild3831-6461-4937-b432-396366393039/7-min.jpg"
+}
+
+### PATCH Update news
+PATCH {{host}}/news/65d4e1c41fae06854b91283e
+Authorization: Bearer {{currentToken}}
+Content-Type: application/json
+
+{
+  "title": "Новость",
+  "text": "Что-то очень интересное..."
+}
+
+### DELETE Delete news
+DELETE {{host}}/news/65d4dd00fcd8609a3a9252b8
+Authorization: Bearer {{currentToken}}
