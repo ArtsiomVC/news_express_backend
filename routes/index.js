@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import fs from 'fs';
 import multer from 'multer';
 import { checkAuth } from '../utils/index.js';
 import authRouter from './auth.js';
@@ -9,6 +10,9 @@ const router = Router();
 
 const storage = multer.diskStorage({
   destination: (_, a, cb) => {
+    if (!fs.existsSync('uploads')) {
+      fs.mkdirSync('uploads');
+    }
     cb(null, 'uploads');
   },
   filename: (_, file, cb) => {
