@@ -9,7 +9,7 @@ dotenv.config();
 const app = express();
 
 app.use(express.json());
-app.use(cors({ origin: '*' }));
+app.use(cors());
 app.use('/uploads', express.static('uploads'));
 app.use(rootRouter);
 

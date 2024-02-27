@@ -2,7 +2,11 @@ import jwt from 'jsonwebtoken';
 
 export default (req, res, next) => {
   const token = (req.headers.authorization || '').replace(/Bearer\s?/, '');
-  const logout = () => res.redirect('/login');
+  const logout = () => {
+    res.status(401).json({
+      errorMessage: 'Нет доступа.'
+    });
+  };
 
   if (token) {
     try {
